@@ -1,89 +1,107 @@
 # agent-skills
 
-Подобранный набор скилов для Claude Code, Codex, Cursor и OpenCode. Скилы взяты с GitHub, сами
-обновляются и проверяются на конфликты. Формат стандартный: папка со `SKILL.md`, поэтому один и тот же
-набор работает во всех агентах.
+Мой набор скилов для ИИ-агентов: Claude Code, Codex, Cursor, OpenCode. Я собрал его под то, чем
+занимаюсь сам: реверс, отладка ядра Windows и гипервизоров, аудит кода, Python и Node, иногда фронтенд.
+В набор вошли скилы из процесса разработки, которые помогают агенту не наломать дров: сначала план,
+потом код, тесты и проверка, а не «готово!» на ровном месте.
 
-## Как это устроено
+Скилов в интернете много, но если поставить всё подряд, начинаются две беды. Скилы устаревают, а
+похожие скилы перебивают друг друга, и агент выбирает между ними наугад. Этот репозиторий решает обе:
+скилы обновляются сами, и на каждую задачу отвечает ровно один скил.
 
-```
-skills.toml            что брать и откуда: репозиторий, ветка, путь, домен (одна задача на скил)
-skills.lock.json       точный коммит и хэш каждого скила (воспроизводимо, видно, что поменялось)
-skills/<name>/         копии скилов + SOURCE.md (откуда, какой коммит, лицензия)
-CHANGELOG.md           каждое обновление со ссылкой на diff в upstream
-tools/skillsync.py     update | check | status | diff | install | uninstall | schedule
-tools/auto_update.py   запуск по расписанию: update → commit → install, лог в .cache/auto-update.log
-```
+## Установка
 
-`~/.claude/skills/<name>` и `~/.agents/skills/<name>` — это junction-ссылки на `skills/<name>`. После
-обновления репозитория агенты сразу видят новые версии, копировать ничего не нужно.
-
-## Как скилы не мешают друг другу
-
-`python tools/skillsync.py check` не пропускает набор, если:
-
-- два скила имеют одно имя (в том числе с чужим скилом, уже лежащим в `~/.claude/skills`). Чтобы
-  развести имена, в манифесте задаётся `as = "новое-имя"`;
-- два скила заявлены на один `domain`. На каждую задачу должен быть один скил, иначе агент выбирает
-  между ними случайно;
-- у скила нет `description` (агент его никогда не выберет) или нет лицензии;
-- скопированный скил правили руками (хэш не совпадает с lock). Свои правки нужно оформлять отдельным
-  локальным скилом.
-
-Если описания двух скилов совпадают по словам больше чем на 30%, `check` выдаёт предупреждение.
-
-`install` трогает только свои ссылки. Если чужая папка мешает установке, `install` об этом сообщает и
-оставляет её на месте.
-
-## Как они остаются актуальными
-
-Обновляет репозиторий только один участник, поэтому истории не расходятся.
-
-- **GitHub Action** (`.github/workflows/update-skills.yml`) раз в день подтягивает upstream, пишет точные
-  коммиты в `skills.lock.json`, ссылки на изменения в `CHANGELOG.md` и коммитит прямо в `main`. Каждый push
-  прогоняет `check`.
-- **Ваш ПК.** Задача Планировщика Windows `agent-skills-update` раз в 12 часов запускает
-  `tools/auto_update.py`: `git pull --ff-only`, затем `install` и `check`, лог пишется в
-  `.cache/auto-update.log`. Если у клона нет remote, скрипт сам выполняет `update` и коммитит.
-- **Проверка кода.** У источников с `trust = "review"` изменения в скриптах и конфигах (всё, кроме `.md` и
-  картинок) не применяются автоматически. Скил остаётся на старом коммите со статусом `held`, это видно
-  в `status` и в `CHANGELOG.md`. Посмотреть изменения: `skillsync.py diff <name> --full`. Принять:
-  `skillsync.py update --approve <name>`, затем `git push`. Для проверки удобно использовать скил
-  `skill-scanner`.
-
-## Команды
+Проще всего через [skills CLI](https://github.com/vercel-labs/skills):
 
 ```bash
-python tools/skillsync.py status --remote   # что стоит и что отстало от upstream
-python tools/skillsync.py update            # подтянуть всё (или: update <name> ...)
-python tools/skillsync.py check             # валидация набора
-python tools/skillsync.py install           # ссылки в ~/.claude/skills и ~/.agents/skills
-python tools/skillsync.py schedule          # (пере)создать задачу автообновления; --remove чтобы убрать
+npx skills add maywaydie/agent-skills -g
 ```
 
-Нужны только Python 3.11+ и git. Сторонние пакеты не требуются.
+Или как плагин Claude Code:
 
-## Добавить скил
+```
+/plugin marketplace add maywaydie/agent-skills
+/plugin install agent-skills@agent-skills
+```
 
-Добавьте блок `[[skill]]` (и при необходимости `[sources.*]`) в `skills.toml`, затем выполните
-`update <name>`, `check` и `install`. Можно просто попросить агента: скил `skills-curator` знает
-порядок действий.
+Если хочется, чтобы скилы обновлялись сами, склонируйте репозиторий и поставьте ссылки:
 
-Свои скилы кладите в `skills/<name>/` и отмечайте `local = true` в манифесте. Обновления их не трогают.
+```bash
+git clone https://github.com/maywaydie/agent-skills
+cd agent-skills
+python tools/skillsync.py install    # ссылки в ~/.claude/skills и ~/.agents/skills
+python tools/skillsync.py schedule   # git pull раз в 12 часов (Планировщик Windows)
+```
 
-## Для других людей
+Нужны только Python 3.11+ и git.
 
-- Через skills CLI: `npx skills add maywaydie/agent-skills -g` (находит `skills/*/SKILL.md`).
-- Как плагин Claude Code: `/plugin marketplace add maywaydie/agent-skills`, затем
-  `/plugin install agent-skills@agent-skills`. Файлы `.claude-plugin/` генерируются при `update`.
-- Или клонировать и выполнить `python tools/skillsync.py install`.
+## Что внутри
 
-## Скилы
+- **Процесс работы**, из [superpowers](https://github.com/obra/superpowers): обсудить задачу → написать
+  план → выполнить его самому или через субагентов → TDD → отладка по шагам → проверка перед словом
+  «готово» → аккуратно закрыть ветку.
+- **Реверс.** IDAPython, Ghidra без GUI, разбор антиотладки и VM-протекторов, REA.
+- **Ядро Windows и гипервизоры.** Разбор крэш-дампов, живая отладка ядра через WinDbg, DbgPrint через
+  DebugView, VT-x/AMD-V, EPT, VMEXIT.
+- **Безопасность.** Semgrep, CodeQL, поиск других мест с тем же багом (всё от Trail of Bits), а также
+  проверка самих скилов на вредные инструкции.
+- **Python, Node, веб.** uv и ruff (официальные скилы Astral), Node.js с TypeScript, тесты веб-приложений
+  через Playwright, [hallmark](https://github.com/Nutlope/hallmark) для лендингов без «ИИ-шного» вида.
+- **Про самих агентов.** Как писать MCP-серверы и описания инструментов, как экономить контекст, как
+  найти нужный скил.
 
-Таблица ниже генерируется при `update`.
+Полный список с версиями — [ниже](#все-скилы).
+
+Часть скилов — просто инструкции, а инструменты ставятся отдельно: WinDbg и
+[mcp-windbg](https://github.com/svnscha/mcp-windbg), Ghidra, IDA Pro, Semgrep, CodeQL.
+
+## Как это работает
+
+Весь набор описан в одном файле, [skills.toml](skills.toml): какой скил брать, из какого репозитория и
+для какой задачи. Скрипт [tools/skillsync.py](tools/skillsync.py) по этому списку копирует скилы в
+`skills/`. Рядом с каждым он кладёт `SOURCE.md` (откуда взят, какой коммит, лицензия) и записывает
+точную версию в `skills.lock.json`.
+
+**Обновления.** Раз в день GitHub Action проверяет, не вышло ли нового в исходных репозиториях. Если
+вышло, он забирает изменения и коммитит их сюда. Что поменялось, видно в [CHANGELOG.md](CHANGELOG.md)
+со ссылками на diff. На компьютере, где установлен набор, остаётся только `git pull`. В папках агентов
+лежат ссылки на этот репозиторий, а не копии, поэтому после pull агенты сразу видят новые версии.
+
+**Новый код сначала смотрю сам.** Если в небольшом репозитории поменялись скрипты (не текст, а код,
+который агент может выполнить), обновление ждёт, пока я его посмотрю:
+
+```bash
+python tools/skillsync.py diff <скил> --full      # что поменялось
+python tools/skillsync.py update --approve <скил>  # принять
+```
+
+Скилы от крупных команд (Anthropic, Microsoft, Trail of Bits, Astral, Sentry, Vercel, superpowers)
+обновляются без ожидания.
+
+**Скилы не мешают друг другу.** Перед каждым обновлением `python tools/skillsync.py check` проверяет:
+- у двух скилов не совпадают имена, в том числе с тем, что у вас уже было установлено;
+- на одну задачу не претендуют два скила;
+- у каждого скила есть описание, по которому агент его найдёт, и лицензия;
+- скачанные скилы никто не правил руками.
+
+Если описания двух скилов слишком похожи, `check` предупредит. `install` трогает только свои ссылки:
+если на месте уже лежит чужая папка, он скажет об этом и не тронет её.
+
+## Добавить или убрать скил
+
+Проще всего попросить агента, например: «добавь скил для X» или «убери brainstorming». Скил
+`skills-curator` знает, где что лежит. Вручную: поправить `skills.toml`, затем выполнить
+`skillsync.py update`, `check` и `install`.
+
+Свои скилы можно класть в `skills/<имя>/` с пометкой `local = true` в `skills.toml`. Обновления их не
+трогают.
+
+## Все скилы
+
+Таблица обновляется автоматически.
 
 <!-- skills:start -->
-| Skill | Domain | Source | Commit |
+| Скил | Задача | Откуда | Версия |
 | --- | --- | --- | --- |
 | `tool-design` | agent-tool-design | [muratcankoylan/Agent-Skills-for-Context-Engineering](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering) | [9ff0c991](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/tree/9ff0c99108b36d3b886defd825d8ac1f47dba374/skills/tool-design) |
 | `anti-reversing-techniques` | anti-reversing | [wshobson/agents](https://github.com/wshobson/agents) | [9c61ab24](https://github.com/wshobson/agents/tree/9c61ab243def98f72da12abd41cfcf5bcd91af9d/plugins/reverse-engineering/skills/anti-reversing-techniques) |
@@ -110,7 +128,7 @@ python tools/skillsync.py schedule          # (пере)создать зада�
 | `receiving-code-review` | review-feedback | [obra/superpowers](https://github.com/obra/superpowers) | [22f0b463](https://github.com/obra/superpowers/tree/22f0b463e7a5e579904dd6211a520321035526f7/skills/receiving-code-review) |
 | `codeql` | sast-codeql | [trailofbits/skills](https://github.com/trailofbits/skills) | [149d7b21](https://github.com/trailofbits/skills/tree/149d7b21f4067765b82e67029730b42d228ef4b4/plugins/static-analysis/skills/codeql) |
 | `semgrep` | sast-semgrep | [trailofbits/skills](https://github.com/trailofbits/skills) | [149d7b21](https://github.com/trailofbits/skills/tree/149d7b21f4067765b82e67029730b42d228ef4b4/plugins/static-analysis/skills/semgrep) |
-| `skills-curator` | skill-collection | local | - |
+| `skills-curator` | skill-collection | свой | - |
 | `find-skills` | skill-discovery | [vercel-labs/skills](https://github.com/vercel-labs/skills) | [57217cf8](https://github.com/vercel-labs/skills/tree/57217cf86ba38148a57af9e90d14a4c049558330/skills/find-skills) |
 | `skill-scanner` | skill-security-scan | [getsentry/skills](https://github.com/getsentry/skills) | [a582c51e](https://github.com/getsentry/skills/tree/a582c51ee29d0f35e6ac321340796f77d43da733/skills/skill-scanner) |
 | `subagent-driven-development` | subagent-execution | [obra/superpowers](https://github.com/obra/superpowers) | [22f0b463](https://github.com/obra/superpowers/tree/22f0b463e7a5e579904dd6211a520321035526f7/skills/subagent-driven-development) |
@@ -120,19 +138,22 @@ python tools/skillsync.py schedule          # (пере)создать зада�
 | `webapp-testing` | web-e2e-testing | [anthropics/skills](https://github.com/anthropics/skills) | [e4bb5d96](https://github.com/anthropics/skills/tree/e4bb5d960d87126ff3b3a8af1a104b7db67560ba/skills/webapp-testing) |
 <!-- skills:end -->
 
-## Что сознательно не взято
+## Что я не взял и почему
 
-| Кандидат | Почему |
+| Кандидат | Почему нет |
 | --- | --- |
-| `pbakaus/impeccable` | В описании заявлено «design, redesign … landing pages», это пересекается с hallmark на новых страницах |
-| `josiahsiegel/powershell-master` | Требует включаться на любую задачу с PowerShell и навязывает правило про пути в Edit/Write; последнее обновление было 5 месяцев назад |
-| `OthmanAdi/planning-with-files` | Регистрирует хуки на каждый Write/Edit/Bash; пересекается с `writing-plans` |
-| `addyosmani/agent-skills`, `mattpocock/skills` | Полные наборы для workflow: пересекаются с superpowers и совпадают с ним по именам |
-| `superpowers: requesting-code-review`, `writing-skills` | Дублируют встроенные `code-review` и `skill-creator` |
-| `trailofbits: c-review`, `fp-check`, `modern-python` | `c-review` не предназначен для драйверов и зависит от плагина, `fp-check` ставит хуки Stop, `modern-python` вытеснен официальными скилами Astral |
-| `ergrelet/windiff` | Работает только внутри checkout WinDiff, лицензия GPL-3.0 |
-| `vmware-skills/VMware-AIops` | Нужен PyPI-пакет с учётными данными vCenter, один мейнтейнер |
-| `anthropics: docx/pdf/pptx/xlsx`, `skill-creator` | Уже встроены и распространяются по проприетарной лицензии |
+| [impeccable](https://github.com/pbakaus/impeccable) | Хороший скил, но тоже берётся за «сделай лендинг» и спорил бы с hallmark |
+| [powershell-master](https://github.com/josiahsiegel/claude-plugin-marketplace) | Хочет включаться на любую строчку PowerShell и навязывает агенту свои правила про пути к файлам. Давно не обновлялся |
+| [planning-with-files](https://github.com/OthmanAdi/planning-with-files) | Вешает хуки на каждое действие агента. Планы и так пишет `writing-plans` |
+| [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills), [mattpocock/skills](https://github.com/mattpocock/skills) | Целые наборы для того же процесса, что и superpowers, с теми же именами скилов |
+| superpowers: `requesting-code-review`, `writing-skills` | В Claude Code уже есть встроенные `code-review` и `skill-creator` |
+| Trail of Bits: `c-review`, `fp-check`, `modern-python` | Первый не подходит для драйверов и требует весь плагин, второй ставит хуки, третий заменили скилы самой Astral |
+| [windiff](https://github.com/ergrelet/windiff) | Работает только внутри своего репозитория, лицензия GPL |
+| [VMware-AIops](https://github.com/vmware-skills/VMware-AIops) | Просит отдать стороннему пакету доступ к vCenter |
+| Anthropic: docx, pdf, pptx, xlsx | Уже встроены в Claude и не под открытой лицензией |
 
-Лицензии остаются у авторов (файлы `LICENSE*` в каждой папке). Скилы trailofbits распространяются по
-CC-BY-SA-4.0: изменённые копии должны выходить под той же лицензией и с указанием авторства.
+## Лицензии
+
+Каждый скил остаётся под лицензией своих авторов: файл `LICENSE` лежит в папке скила, ссылка на
+оригинал — в `SOURCE.md`. Скилы Trail of Bits распространяются по CC-BY-SA-4.0: изменённые версии нужно
+выпускать под той же лицензией и с указанием авторов.

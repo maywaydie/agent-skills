@@ -419,10 +419,10 @@ def write_readme_table(man) -> None:
     if start not in text or end not in text:
         return
     lock = load_lock()
-    rows = ["| Skill | Domain | Source | Commit |", "| --- | --- | --- | --- |"]
+    rows = ["| Скил | Задача | Откуда | Версия |", "| --- | --- | --- | --- |"]
     for s in sorted(man["skill"], key=lambda x: (x.get("domain", ""), x["as"])):
         if s.get("local"):
-            rows.append(f"| `{s['as']}` | {s.get('domain', '')} | local | - |")
+            rows.append(f"| `{s['as']}` | {s.get('domain', '')} | свой | - |")
             continue
         src = man["sources"][s["source"]]
         commit = lock["skills"].get(s["as"], {}).get("commit", "")
