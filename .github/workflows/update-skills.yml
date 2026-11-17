@@ -1,5 +1,7 @@
-# Once the repo is on GitHub: refresh every skill daily and open a PR with the changes.
-# The PR is the review step, so code changes are approved here instead of being held.
+# The single updater of this repo. Daily it pulls every skill from upstream and commits to main.
+# Code changes from `trust = "review"` sources are held (see skills.lock.json "held" and CHANGELOG.md)
+# until someone runs `python tools/skillsync.py update --approve <name>` and pushes.
+# Machines that use the skills only `git pull` (tools/auto_update.py does that on a schedule).
 name: update-skills
 
 on:
@@ -7,11 +9,14 @@ on:
     - cron: "17 5 * * *"
   workflow_dispatch:
   push:
-    paths: ["skills.toml", "tools/**", "skills/**"]
+    paths: ["skills.toml", "tools/**", "skills/**", "skills.lock.json"]
 
 permissions:
   contents: write
-  pull-requests: write
+
+concurrency:
+  group: update-skills
+  cancel-in-progress: false
 
 jobs:
   update:
@@ -24,19 +29,11 @@ jobs:
       - name: Check current set
         if: github.event_name == 'push'
         run: python tools/skillsync.py check
-      - name: Update from upstream
+      - name: Update from upstream and commit
         if: github.event_name != 'push'
-        run: python tools/skillsync.py update --approve-all || true
-      - name: Open pull request
-        if: github.event_name != 'push'
-        uses: peter-evans/create-pull-request@v7
-        with:
-          branch: bot/update-skills
-          commit-message: "skills: update from upstream"
-          title: "Update skills from upstream"
-          body-path: CHANGELOG.md
-          add-paths: |
-            skills/**
-            skills.lock.json
-            CHANGELOG.md
-            .claude-plugin/**
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898341+github-actions[bot]@users.noreply.github.com"
+          python tools/skillsync.py update --commit || echo "::warning::update reported problems, see CHANGELOG.md"
+          python tools/skillsync.py check
+          git push

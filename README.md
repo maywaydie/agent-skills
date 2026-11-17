@@ -37,15 +37,19 @@ tools/auto_update.py   запуск по расписанию: update → commit
 
 ## Как они остаются актуальными
 
-- **Локально.** Задача Планировщика Windows `agent-skills-update` раз в 12 часов запускает
-  `tools/auto_update.py`. Если upstream сдвинулся, файлы копируются, коммит пишется в lock и в
-  `CHANGELOG.md`, изменение коммитится в git.
-- **Проверка кода.** У источников с `trust = "review"` изменения в скриптах и конфигах (всё, кроме
-  `.md` и картинок) не применяются автоматически. Скил остаётся на старом коммите со статусом `held`.
-  Посмотреть изменения: `skillsync.py diff <name> --full`. Принять: `skillsync.py update --approve <name>`.
-  Для проверки удобно использовать скил `skill-scanner`.
-- **На GitHub.** Если опубликовать репозиторий, `.github/workflows/update-skills.yml` будет раз в день
-  открывать PR с обновлениями. Ревью PR заменяет удержание `held`.
+Обновляет репозиторий только один участник, поэтому истории не расходятся.
+
+- **GitHub Action** (`.github/workflows/update-skills.yml`) раз в день подтягивает upstream, пишет точные
+  коммиты в `skills.lock.json`, ссылки на изменения в `CHANGELOG.md` и коммитит прямо в `main`. Каждый push
+  прогоняет `check`.
+- **Ваш ПК.** Задача Планировщика Windows `agent-skills-update` раз в 12 часов запускает
+  `tools/auto_update.py`: `git pull --ff-only`, затем `install` и `check`, лог пишется в
+  `.cache/auto-update.log`. Если у клона нет remote, скрипт сам выполняет `update` и коммитит.
+- **Проверка кода.** У источников с `trust = "review"` изменения в скриптах и конфигах (всё, кроме `.md` и
+  картинок) не применяются автоматически. Скил остаётся на старом коммите со статусом `held`, это видно
+  в `status` и в `CHANGELOG.md`. Посмотреть изменения: `skillsync.py diff <name> --full`. Принять:
+  `skillsync.py update --approve <name>`, затем `git push`. Для проверки удобно использовать скил
+  `skill-scanner`.
 
 ## Команды
 
