@@ -1,0 +1,9 @@
+{
+  "name": "agent-skills",
+  "description": "Curated, conflict-checked, auto-updated agent skills for Claude Code, Codex, Cursor and OpenCode",
+  "version": "2026.11.18",
+  "author": {
+    "name": "maywaydie"
+  },
+  "repository": "https://github.com/maywaydie/agent-skills"
+}

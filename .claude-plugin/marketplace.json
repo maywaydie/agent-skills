@@ -1,0 +1,57 @@
+{
+  "name": "agent-skills",
+  "owner": {
+    "name": "maywaydie"
+  },
+  "metadata": {
+    "description": "Curated, conflict-checked, auto-updated agent skills for Claude Code, Codex, Cursor and OpenCode"
+  },
+  "plugins": [
+    {
+      "name": "agent-skills",
+      "description": "Curated, conflict-checked, auto-updated agent skills for Claude Code, Codex, Cursor and OpenCode",
+      "version": "2026.11.18",
+      "author": {
+        "name": "maywaydie"
+      },
+      "repository": "https://github.com/maywaydie/agent-skills",
+      "source": "./skills",
+      "strict": false,
+      "skills": [
+        "./brainstorming",
+        "./writing-plans",
+        "./executing-plans",
+        "./subagent-driven-development",
+        "./dispatching-parallel-agents",
+        "./test-driven-development",
+        "./systematic-debugging",
+        "./verification-before-completion",
+        "./using-git-worktrees",
+        "./finishing-a-development-branch",
+        "./receiving-code-review",
+        "./find-skills",
+        "./skills-curator",
+        "./skill-scanner",
+        "./mcp-builder",
+        "./tool-design",
+        "./context-optimization",
+        "./reverse-engineer-anything",
+        "./idapython",
+        "./ghidra",
+        "./anti-reversing-techniques",
+        "./analyze-dump",
+        "./kernel-debug",
+        "./debugview",
+        "./hypervisor-internals",
+        "./semgrep",
+        "./codeql",
+        "./variant-analysis",
+        "./uv",
+        "./ruff",
+        "./node-best-practices",
+        "./webapp-testing",
+        "./hallmark"
+      ]
+    }
+  ]
+}

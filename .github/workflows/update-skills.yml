@@ -1,0 +1,42 @@
+# Once the repo is on GitHub: refresh every skill daily and open a PR with the changes.
+# The PR is the review step, so code changes are approved here instead of being held.
+name: update-skills
+
+on:
+  schedule:
+    - cron: "17 5 * * *"
+  workflow_dispatch:
+  push:
+    paths: ["skills.toml", "tools/**", "skills/**"]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check current set
+        if: github.event_name == 'push'
+        run: python tools/skillsync.py check
+      - name: Update from upstream
+        if: github.event_name != 'push'
+        run: python tools/skillsync.py update --approve-all || true
+      - name: Open pull request
+        if: github.event_name != 'push'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: bot/update-skills
+          commit-message: "skills: update from upstream"
+          title: "Update skills from upstream"
+          body-path: CHANGELOG.md
+          add-paths: |
+            skills/**
+            skills.lock.json
+            CHANGELOG.md
+            .claude-plugin/**

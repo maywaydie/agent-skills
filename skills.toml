@@ -1,0 +1,307 @@
+# What this repo vendors and from where. Edit this file, then:
+#   python tools/skillsync.py update && python tools/skillsync.py check && python tools/skillsync.py install
+#
+# [[skill]] fields:
+#   name    folder name of the skill upstream
+#   source  key of a [sources.*] block
+#   path    folder inside the repo (default: skills/<name>)
+#   as      local name, only to dodge a name clash (rewrites the frontmatter `name`)
+#   domain  the one job this skill does; two skills may not share a domain
+#   exclude glob patterns (relative to the skill folder) not to copy
+#   local   true for skills written here; updates never touch them
+#
+# [sources.*] trust:
+#   auto    apply every upstream change
+#   review  apply text changes, hold changes to scripts/configs until `update --approve <name>`
+
+[settings]
+targets = ["~/.claude/skills", "~/.agents/skills"]
+install_mode = "link"          # junctions on Windows, symlinks elsewhere; "copy" for agents that do not follow links
+default_trust = "review"
+overlap_threshold = 0.3
+
+[settings.plugin]
+name = "agent-skills"
+owner = "maywaydie"
+repository = "https://github.com/maywaydie/agent-skills"
+description = "Curated, conflict-checked, auto-updated agent skills for Claude Code, Codex, Cursor and OpenCode"
+
+# ---------------------------------------------------------------- sources
+
+[sources.superpowers]
+repo = "obra/superpowers"
+ref = "main"
+license = "MIT"
+trust = "auto"
+
+[sources.anthropic]
+repo = "anthropics/skills"
+ref = "main"
+license = "Apache-2.0 (per-skill LICENSE.txt)"
+trust = "auto"
+
+[sources.vercel-skills]
+repo = "vercel-labs/skills"
+ref = "main"
+license = "MIT"
+trust = "auto"
+
+[sources.rea]
+repo = "morluto/rea"
+ref = "main"
+license = "MIT"
+trust = "review"
+
+[sources.ida-pro-mcp]
+repo = "mrexodia/ida-pro-mcp"
+ref = "main"
+license = "MIT"
+
+[sources.mitsuhiko]
+repo = "mitsuhiko/agent-stuff"
+ref = "main"
+license = "Apache-2.0"
+
+[sources.wshobson]
+repo = "wshobson/agents"
+ref = "main"
+license = "MIT"
+
+[sources.mcp-windbg]
+repo = "svnscha/mcp-windbg"
+ref = "develop"
+license = "MIT"
+
+[sources.microsoft]
+repo = "microsoft/skills"
+ref = "main"
+license = "MIT"
+trust = "auto"
+
+[sources.lowlevel]
+repo = "mohitmishra786/low-level-dev-skills"
+ref = "main"
+license = "MIT"
+
+[sources.trailofbits]
+repo = "trailofbits/skills"
+ref = "main"
+license = "CC-BY-SA-4.0 (attribution + share-alike)"
+trust = "auto"
+
+[sources.sentry]
+repo = "getsentry/skills"
+ref = "main"
+license = "Apache-2.0"
+trust = "auto"
+
+[sources.astral]
+repo = "astral-sh/claude-code-plugins"
+ref = "main"
+license = "MIT OR Apache-2.0"
+trust = "auto"
+
+[sources.mcollina]
+repo = "mcollina/skills"
+ref = "main"
+license = "MIT"
+
+[sources.hallmark]
+repo = "Nutlope/hallmark"
+ref = "main"
+license = "MIT"
+
+[sources.context-eng]
+repo = "muratcankoylan/Agent-Skills-for-Context-Engineering"
+ref = "main"
+license = "MIT"
+
+# ---------------------------------------------------------------- agentic workflow
+
+[[skill]]
+name = "brainstorming"
+source = "superpowers"
+domain = "ideation"
+
+[[skill]]
+name = "writing-plans"
+source = "superpowers"
+domain = "planning"
+
+[[skill]]
+name = "executing-plans"
+source = "superpowers"
+domain = "plan-execution"
+
+[[skill]]
+name = "subagent-driven-development"
+source = "superpowers"
+domain = "subagent-execution"
+
+[[skill]]
+name = "dispatching-parallel-agents"
+source = "superpowers"
+domain = "parallel-agents"
+
+[[skill]]
+name = "test-driven-development"
+source = "superpowers"
+domain = "tdd"
+
+[[skill]]
+name = "systematic-debugging"
+source = "superpowers"
+domain = "debugging"
+
+[[skill]]
+name = "verification-before-completion"
+source = "superpowers"
+domain = "verification"
+
+[[skill]]
+name = "using-git-worktrees"
+source = "superpowers"
+domain = "git-worktrees"
+
+[[skill]]
+name = "finishing-a-development-branch"
+source = "superpowers"
+domain = "git-branch-finish"
+
+[[skill]]
+name = "receiving-code-review"
+source = "superpowers"
+domain = "review-feedback"
+
+# ---------------------------------------------------------------- skills, MCP, context
+
+[[skill]]
+name = "find-skills"
+source = "vercel-skills"
+domain = "skill-discovery"
+
+[[skill]]
+name = "skills-curator"
+local = true
+domain = "skill-collection"
+
+[[skill]]
+name = "skill-scanner"
+source = "sentry"
+domain = "skill-security-scan"
+
+[[skill]]
+name = "mcp-builder"
+source = "anthropic"
+domain = "mcp-servers"
+
+[[skill]]
+name = "tool-design"
+source = "context-eng"
+domain = "agent-tool-design"
+
+[[skill]]
+name = "context-optimization"
+source = "context-eng"
+domain = "context-management"
+
+# ---------------------------------------------------------------- reverse engineering
+
+[[skill]]
+name = "reverse-engineer-anything"
+source = "rea"
+path = ".agents/skills/reverse-engineer-anything"
+domain = "reverse-engineering"
+
+[[skill]]
+name = "idapython"
+source = "ida-pro-mcp"
+domain = "ida-scripting"
+
+[[skill]]
+name = "ghidra"
+source = "mitsuhiko"
+domain = "ghidra-headless"
+
+[[skill]]
+name = "anti-reversing-techniques"
+source = "wshobson"
+path = "plugins/reverse-engineering/skills/anti-reversing-techniques"
+domain = "anti-reversing"
+
+# ---------------------------------------------------------------- windows kernel, hypervisor
+
+[[skill]]
+name = "analyze-dump"
+source = "mcp-windbg"
+path = "plugins/mcp-windbg-skills/skills/analyze-dump"
+domain = "crash-dump-analysis"
+
+[[skill]]
+name = "kernel-debug"
+source = "mcp-windbg"
+path = "plugins/mcp-windbg-skills/skills/kernel-debug"
+domain = "kernel-debugging"
+
+[[skill]]
+name = "debugview"
+source = "microsoft"
+path = ".github/skills/debugview"
+domain = "kernel-debug-output"
+
+[[skill]]
+name = "hypervisor-internals"
+source = "lowlevel"
+path = "skills/virtualization/hypervisor-internals"
+domain = "hypervisor"
+
+# ---------------------------------------------------------------- security audit
+
+[[skill]]
+name = "semgrep"
+source = "trailofbits"
+path = "plugins/static-analysis/skills/semgrep"
+domain = "sast-semgrep"
+
+[[skill]]
+name = "codeql"
+source = "trailofbits"
+path = "plugins/static-analysis/skills/codeql"
+domain = "sast-codeql"
+
+[[skill]]
+name = "variant-analysis"
+source = "trailofbits"
+path = "plugins/variant-analysis/skills/variant-analysis"
+domain = "variant-analysis"
+
+# ---------------------------------------------------------------- python, node, web
+
+[[skill]]
+name = "uv"
+source = "astral"
+path = "plugins/astral/skills/uv"
+domain = "python-env"
+
+[[skill]]
+name = "ruff"
+source = "astral"
+path = "plugins/astral/skills/ruff"
+domain = "python-lint"
+
+[[skill]]
+name = "node"
+as = "node-best-practices"
+source = "mcollina"
+domain = "nodejs"
+
+[[skill]]
+name = "webapp-testing"
+source = "anthropic"
+domain = "web-e2e-testing"
+
+[[skill]]
+name = "hallmark"
+source = "hallmark"
+domain = "frontend-design"
+exclude = ["scripts/*.test.mjs", "scripts/fixtures/*"]

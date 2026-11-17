@@ -1,0 +1,296 @@
+{
+  "sources": {
+    "anthropic": {
+      "repo": "anthropics/skills",
+      "ref": "main",
+      "commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+      "date": "2026-11-16T09:22:47-05:00"
+    },
+    "astral": {
+      "repo": "astral-sh/claude-code-plugins",
+      "ref": "main",
+      "commit": "855418fb9ebfada49a8345a5c3ada9db2cdc2419",
+      "date": "2026-11-09T12:28:46-06:00"
+    },
+    "context-eng": {
+      "repo": "muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "ref": "main",
+      "commit": "9ff0c99108b36d3b886defd825d8ac1f47dba374",
+      "date": "2026-10-11T22:06:39-04:00"
+    },
+    "hallmark": {
+      "repo": "Nutlope/hallmark",
+      "ref": "main",
+      "commit": "04977e15f3dfd6ee4b74c887dac3eb52665d6c92",
+      "date": "2026-11-11T11:56:04Z"
+    },
+    "ida-pro-mcp": {
+      "repo": "mrexodia/ida-pro-mcp",
+      "ref": "main",
+      "commit": "13e480cb1198f923154b63669e8cb2faee5deaea",
+      "date": "2026-11-12T11:01:58Z"
+    },
+    "lowlevel": {
+      "repo": "mohitmishra786/low-level-dev-skills",
+      "ref": "main",
+      "commit": "d0d0a13d4e3caec7afb2d647a1fffdb7cb1ee058",
+      "date": "2026-11-14T08:33:25+05:30"
+    },
+    "mcollina": {
+      "repo": "mcollina/skills",
+      "ref": "main",
+      "commit": "c75d70dbfbe991d8cec42aeda0b64ff14fbb9ac7",
+      "date": "2026-10-18T07:20:30Z"
+    },
+    "mcp-windbg": {
+      "repo": "svnscha/mcp-windbg",
+      "ref": "develop",
+      "commit": "cf308c236e497ffaa613c54fc38babfa7da59409",
+      "date": "2026-11-16T14:40:33+01:00"
+    },
+    "microsoft": {
+      "repo": "microsoft/skills",
+      "ref": "main",
+      "commit": "b35d2c60fac796bfd2cfd14ad3f550c73e92d9bb",
+      "date": "2026-11-16T18:09:29-08:00"
+    },
+    "mitsuhiko": {
+      "repo": "mitsuhiko/agent-stuff",
+      "ref": "main",
+      "commit": "0865c849befd2021490679f96a8dee58c84ac857",
+      "date": "2026-09-27T23:10:38+02:00"
+    },
+    "rea": {
+      "repo": "morluto/rea",
+      "ref": "main",
+      "commit": "c78e6e3aa54facde2d7610f203dd740e47611090",
+      "date": "2026-11-18T06:13:42+08:00"
+    },
+    "sentry": {
+      "repo": "getsentry/skills",
+      "ref": "main",
+      "commit": "a582c51ee29d0f35e6ac321340796f77d43da733",
+      "date": "2026-11-14T19:38:57Z"
+    },
+    "superpowers": {
+      "repo": "obra/superpowers",
+      "ref": "main",
+      "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "date": "2026-11-03T14:17:07-08:00"
+    },
+    "trailofbits": {
+      "repo": "trailofbits/skills",
+      "ref": "main",
+      "commit": "149d7b21f4067765b82e67029730b42d228ef4b4",
+      "date": "2026-11-12T12:48:47-05:00"
+    },
+    "vercel-skills": {
+      "repo": "vercel-labs/skills",
+      "ref": "main",
+      "commit": "57217cf86ba38148a57af9e90d14a4c049558330",
+      "date": "2026-11-17T09:58:01+09:00"
+    },
+    "wshobson": {
+      "repo": "wshobson/agents",
+      "ref": "main",
+      "commit": "9c61ab243def98f72da12abd41cfcf5bcd91af9d",
+      "date": "2026-11-08T08:14:13-05:00"
+    }
+  },
+  "skills": {
+    "analyze-dump": {
+      "source": "mcp-windbg",
+      "path": "plugins/mcp-windbg-skills/skills/analyze-dump",
+      "commit": "cf308c236e497ffaa613c54fc38babfa7da59409",
+      "hash": "20c1d8f342fe8d4b"
+    },
+    "anti-reversing-techniques": {
+      "source": "wshobson",
+      "path": "plugins/reverse-engineering/skills/anti-reversing-techniques",
+      "commit": "9c61ab243def98f72da12abd41cfcf5bcd91af9d",
+      "hash": "bb026aac1c38bff5"
+    },
+    "brainstorming": {
+      "source": "superpowers",
+      "path": "skills/brainstorming",
+      "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "hash": "bfe138e2c4e78ed3"
+    },
+    "codeql": {
+      "source": "trailofbits",
+      "path": "plugins/static-analysis/skills/codeql",
+      "commit": "149d7b21f4067765b82e67029730b42d228ef4b4",
+      "hash": "7e5e78f4de0b812c"
+    },
+    "context-optimization": {
+      "source": "context-eng",
+      "path": "skills/context-optimization",
+      "commit": "9ff0c99108b36d3b886defd825d8ac1f47dba374",
+      "hash": "f961ac90be8d7372"
+    },
+    "debugview": {
+      "source": "microsoft",
+      "path": ".github/skills/debugview",
+      "commit": "b35d2c60fac796bfd2cfd14ad3f550c73e92d9bb",
+      "hash": "bfb454d8bd3a2779"
+    },
+    "dispatching-parallel-agents": {
+      "source": "superpowers",
+      "path": "skills/dispatching-parallel-agents",
+      "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "hash": "8611bcbc9ebf8270"
+    },
+    "executing-plans": {
+      "source": "superpowers",
+      "path": "skills/executing-plans",
+      "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "hash": "f63c90b6fde9ed95"
+    },
+    "find-skills": {
+      "source": "vercel-skills",
+      "path": "skills/find-skills",
+      "commit": "57217cf86ba38148a57af9e90d14a4c049558330",
+      "hash": "6dd2e2b346827696"
+    },
+    "finishing-a-development-branch": {
+      "source": "superpowers",
+      "path": "skills/finishing-a-development-branch",
+      "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "hash": "3cb77392de8ca5d4"
+    },
+    "ghidra": {
+      "source": "mitsuhiko",
+      "path": "skills/ghidra",
+      "commit": "0865c849befd2021490679f96a8dee58c84ac857",
+      "hash": "b85b72c0f85054f4"
+    },
+    "hallmark": {
+      "source": "hallmark",
+      "path": "skills/hallmark",
+      "commit": "04977e15f3dfd6ee4b74c887dac3eb52665d6c92",
+      "hash": "42cf5b82a12be80e"
+    },
+    "hypervisor-internals": {
+      "source": "lowlevel",
+      "path": "skills/virtualization/hypervisor-internals",
+      "commit": "d0d0a13d4e3caec7afb2d647a1fffdb7cb1ee058",
+      "hash": "4e1b662bc12d0955"
+    },
+    "idapython": {
+      "source": "ida-pro-mcp",
+      "path": "skills/idapython",
+      "commit": "13e480cb1198f923154b63669e8cb2faee5deaea",
+      "hash": "a11ca2fbc2e0af5a"
+    },
+    "kernel-debug": {
+      "source": "mcp-windbg",
+      "path": "plugins/mcp-windbg-skills/skills/kernel-debug",
+      "commit": "cf308c236e497ffaa613c54fc38babfa7da59409",
+      "hash": "40be8d7b58a5b5f5"
+    },
+    "mcp-builder": {
+      "source": "anthropic",
+      "path": "skills/mcp-builder",
+      "commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+      "hash": "cce282771c1e3c1e"
+    },
+    "node-best-practices": {
+      "source": "mcollina",
+      "path": "skills/node",
+      "commit": "c75d70dbfbe991d8cec42aeda0b64ff14fbb9ac7",
+      "hash": "5580158971586b1a"
+    },
+    "receiving-code-review": {
+      "source": "superpowers",
+      "path": "skills/receiving-code-review",
+      "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "hash": "8a8165d7e791fea8"
+    },
+    "reverse-engineer-anything": {
+      "source": "rea",
+      "path": ".agents/skills/reverse-engineer-anything",
+      "commit": "c78e6e3aa54facde2d7610f203dd740e47611090",
+      "hash": "acd70752f83437bd"
+    },
+    "ruff": {
+      "source": "astral",
+      "path": "plugins/astral/skills/ruff",
+      "commit": "855418fb9ebfada49a8345a5c3ada9db2cdc2419",
+      "hash": "b70dc17d22ffa192"
+    },
+    "semgrep": {
+      "source": "trailofbits",
+      "path": "plugins/static-analysis/skills/semgrep",
+      "commit": "149d7b21f4067765b82e67029730b42d228ef4b4",
+      "hash": "a58c8227d8c5994d"
+    },
+    "skill-scanner": {
+      "source": "sentry",
+      "path": "skills/skill-scanner",
+      "commit": "a582c51ee29d0f35e6ac321340796f77d43da733",
+      "hash": "c5c270c70547fb42"
+    },
+    "subagent-driven-development": {
+      "source": "superpowers",
+      "path": "skills/subagent-driven-development",
+      "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "hash": "e9209ab525ee47e4"
+    },
+    "systematic-debugging": {
+      "source": "superpowers",
+      "path": "skills/systematic-debugging",
+      "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "hash": "adcf4bd3a4058f4c"
+    },
+    "test-driven-development": {
+      "source": "superpowers",
+      "path": "skills/test-driven-development",
+      "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "hash": "c23cf09412178a22"
+    },
+    "tool-design": {
+      "source": "context-eng",
+      "path": "skills/tool-design",
+      "commit": "9ff0c99108b36d3b886defd825d8ac1f47dba374",
+      "hash": "ba0c87314c18f667"
+    },
+    "using-git-worktrees": {
+      "source": "superpowers",
+      "path": "skills/using-git-worktrees",
+      "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "hash": "58ddb4ec9c178fd1"
+    },
+    "uv": {
+      "source": "astral",
+      "path": "plugins/astral/skills/uv",
+      "commit": "855418fb9ebfada49a8345a5c3ada9db2cdc2419",
+      "hash": "cb8da46b5b760491"
+    },
+    "variant-analysis": {
+      "source": "trailofbits",
+      "path": "plugins/variant-analysis/skills/variant-analysis",
+      "commit": "149d7b21f4067765b82e67029730b42d228ef4b4",
+      "hash": "115c51b239fecbef"
+    },
+    "verification-before-completion": {
+      "source": "superpowers",
+      "path": "skills/verification-before-completion",
+      "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "hash": "5839bbf9770a433c"
+    },
+    "webapp-testing": {
+      "source": "anthropic",
+      "path": "skills/webapp-testing",
+      "commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+      "hash": "7076798a74ad5a14"
+    },
+    "writing-plans": {
+      "source": "superpowers",
+      "path": "skills/writing-plans",
+      "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
+      "hash": "3cd5d4905fc43102"
+    }
+  },
+  "held": {},
+  "checked": "2026-11-17T22:22:28+00:00"
+}
