@@ -63,8 +63,8 @@
     "rea": {
       "repo": "morluto/rea",
       "ref": "main",
-      "commit": "c78e6e3aa54facde2d7610f203dd740e47611090",
-      "date": "2026-11-18T06:13:42+08:00"
+      "commit": "b7461b7b14dcc3ec47798b60ce06d63ae6324e06",
+      "date": "2026-11-18T06:23:34+08:00"
     },
     "sentry": {
       "repo": "getsentry/skills",
@@ -108,31 +108,31 @@
       "source": "wshobson",
       "path": "plugins/reverse-engineering/skills/anti-reversing-techniques",
       "commit": "9c61ab243def98f72da12abd41cfcf5bcd91af9d",
-      "hash": "bb026aac1c38bff5"
+      "hash": "a6b422c505a0033f"
     },
     "brainstorming": {
       "source": "superpowers",
       "path": "skills/brainstorming",
       "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
-      "hash": "bfe138e2c4e78ed3"
+      "hash": "855f46fe599bae19"
     },
     "codeql": {
       "source": "trailofbits",
       "path": "plugins/static-analysis/skills/codeql",
       "commit": "149d7b21f4067765b82e67029730b42d228ef4b4",
-      "hash": "7e5e78f4de0b812c"
+      "hash": "66cb1b36548ecf69"
     },
     "context-optimization": {
       "source": "context-eng",
       "path": "skills/context-optimization",
       "commit": "9ff0c99108b36d3b886defd825d8ac1f47dba374",
-      "hash": "f961ac90be8d7372"
+      "hash": "4d7b86376381cd75"
     },
     "debugview": {
       "source": "microsoft",
       "path": ".github/skills/debugview",
       "commit": "b35d2c60fac796bfd2cfd14ad3f550c73e92d9bb",
-      "hash": "bfb454d8bd3a2779"
+      "hash": "a08e225ac2f47d5b"
     },
     "dispatching-parallel-agents": {
       "source": "superpowers",
@@ -144,7 +144,7 @@
       "source": "superpowers",
       "path": "skills/executing-plans",
       "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
-      "hash": "f63c90b6fde9ed95"
+      "hash": "2f2554ed3484fd34"
     },
     "find-skills": {
       "source": "vercel-skills",
@@ -162,13 +162,13 @@
       "source": "mitsuhiko",
       "path": "skills/ghidra",
       "commit": "0865c849befd2021490679f96a8dee58c84ac857",
-      "hash": "b85b72c0f85054f4"
+      "hash": "416cf19ffa845ef0"
     },
     "hallmark": {
       "source": "hallmark",
       "path": "skills/hallmark",
       "commit": "04977e15f3dfd6ee4b74c887dac3eb52665d6c92",
-      "hash": "42cf5b82a12be80e"
+      "hash": "bef1afe75d924556"
     },
     "hypervisor-internals": {
       "source": "lowlevel",
@@ -180,7 +180,7 @@
       "source": "ida-pro-mcp",
       "path": "skills/idapython",
       "commit": "13e480cb1198f923154b63669e8cb2faee5deaea",
-      "hash": "a11ca2fbc2e0af5a"
+      "hash": "7a6ff07a4c913f0b"
     },
     "kernel-debug": {
       "source": "mcp-windbg",
@@ -192,13 +192,13 @@
       "source": "anthropic",
       "path": "skills/mcp-builder",
       "commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
-      "hash": "cce282771c1e3c1e"
+      "hash": "fdb9dcc3efcaeaaa"
     },
     "node-best-practices": {
       "source": "mcollina",
       "path": "skills/node",
       "commit": "c75d70dbfbe991d8cec42aeda0b64ff14fbb9ac7",
-      "hash": "5580158971586b1a"
+      "hash": "b5541d168ba7a5af"
     },
     "receiving-code-review": {
       "source": "superpowers",
@@ -209,8 +209,8 @@
     "reverse-engineer-anything": {
       "source": "rea",
       "path": ".agents/skills/reverse-engineer-anything",
-      "commit": "c78e6e3aa54facde2d7610f203dd740e47611090",
-      "hash": "acd70752f83437bd"
+      "commit": "b7461b7b14dcc3ec47798b60ce06d63ae6324e06",
+      "hash": "0fcee33efbdde7d6"
     },
     "ruff": {
       "source": "astral",
@@ -222,25 +222,25 @@
       "source": "trailofbits",
       "path": "plugins/static-analysis/skills/semgrep",
       "commit": "149d7b21f4067765b82e67029730b42d228ef4b4",
-      "hash": "a58c8227d8c5994d"
+      "hash": "1396bed03051a4e4"
     },
     "skill-scanner": {
       "source": "sentry",
       "path": "skills/skill-scanner",
       "commit": "a582c51ee29d0f35e6ac321340796f77d43da733",
-      "hash": "c5c270c70547fb42"
+      "hash": "727af06f44e273b2"
     },
     "subagent-driven-development": {
       "source": "superpowers",
       "path": "skills/subagent-driven-development",
       "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
-      "hash": "e9209ab525ee47e4"
+      "hash": "aa896fba1c8dacda"
     },
     "systematic-debugging": {
       "source": "superpowers",
       "path": "skills/systematic-debugging",
       "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
-      "hash": "adcf4bd3a4058f4c"
+      "hash": "97c3d8947a875954"
     },
     "test-driven-development": {
       "source": "superpowers",
@@ -252,7 +252,7 @@
       "source": "context-eng",
       "path": "skills/tool-design",
       "commit": "9ff0c99108b36d3b886defd825d8ac1f47dba374",
-      "hash": "ba0c87314c18f667"
+      "hash": "14beb562fc6d69ef"
     },
     "using-git-worktrees": {
       "source": "superpowers",
@@ -270,7 +270,7 @@
       "source": "trailofbits",
       "path": "plugins/variant-analysis/skills/variant-analysis",
       "commit": "149d7b21f4067765b82e67029730b42d228ef4b4",
-      "hash": "115c51b239fecbef"
+      "hash": "fc6dc511db87295c"
     },
     "verification-before-completion": {
       "source": "superpowers",
@@ -282,7 +282,7 @@
       "source": "anthropic",
       "path": "skills/webapp-testing",
       "commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
-      "hash": "7076798a74ad5a14"
+      "hash": "ea0986c3af798f34"
     },
     "writing-plans": {
       "source": "superpowers",
@@ -292,5 +292,5 @@
     }
   },
   "held": {},
-  "checked": "2026-11-17T22:22:28+00:00"
+  "checked": "2026-11-17T22:23:56+00:00"
 }

@@ -111,9 +111,10 @@ def web_url(src: dict) -> str:
 
 
 def iter_files(base: Path):
-    for p in sorted(base.rglob("*")):
-        if p.is_file():
-            yield p.relative_to(base).as_posix(), p
+    # Sort by the posix string, not by Path: Windows paths compare case-insensitively,
+    # which would give a different order (and hash) than on Linux CI.
+    files = [(p.relative_to(base).as_posix(), p) for p in base.rglob("*") if p.is_file()]
+    yield from sorted(files, key=lambda item: item[0])
 
 
 def tree_hash(base: Path) -> str:
