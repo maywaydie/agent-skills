@@ -2,6 +2,10 @@
 
 Written by `tools/skillsync.py update`.
 
+## 2026-11-18 13:56
+
+- **anti-reversing-techniques** (wshobson): updated [9c61ab24...42203085](https://github.com/wshobson/agents/compare/9c61ab243def98f72da12abd41cfcf5bcd91af9d...42203085cfc5736204bf0f6d436dff7e1da0bf3f), 4 file(s)
+
 ## 2026-11-18 00:11
 
 - **uv** (astral): updated `855418fb`, 2 file(s)

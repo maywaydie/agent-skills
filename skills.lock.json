@@ -63,8 +63,8 @@
     "rea": {
       "repo": "morluto/rea",
       "ref": "main",
-      "commit": "b7461b7b14dcc3ec47798b60ce06d63ae6324e06",
-      "date": "2026-11-18T06:23:34+08:00"
+      "commit": "39e8403306af0764c6319a514193d9fb4dad794e",
+      "date": "2026-11-18T08:54:35-05:00"
     },
     "sentry": {
       "repo": "getsentry/skills",
@@ -93,8 +93,8 @@
     "wshobson": {
       "repo": "wshobson/agents",
       "ref": "main",
-      "commit": "9c61ab243def98f72da12abd41cfcf5bcd91af9d",
-      "date": "2026-11-08T08:14:13-05:00"
+      "commit": "42203085cfc5736204bf0f6d436dff7e1da0bf3f",
+      "date": "2026-11-18T08:13:27-05:00"
     }
   },
   "skills": {
@@ -107,8 +107,8 @@
     "anti-reversing-techniques": {
       "source": "wshobson",
       "path": "plugins/reverse-engineering/skills/anti-reversing-techniques",
-      "commit": "9c61ab243def98f72da12abd41cfcf5bcd91af9d",
-      "hash": "a6b422c505a0033f"
+      "commit": "42203085cfc5736204bf0f6d436dff7e1da0bf3f",
+      "hash": "0d749836afdd2897"
     },
     "brainstorming": {
       "source": "superpowers",
@@ -209,7 +209,7 @@
     "reverse-engineer-anything": {
       "source": "rea",
       "path": ".agents/skills/reverse-engineer-anything",
-      "commit": "b7461b7b14dcc3ec47798b60ce06d63ae6324e06",
+      "commit": "39e8403306af0764c6319a514193d9fb4dad794e",
       "hash": "0fcee33efbdde7d6"
     },
     "ruff": {
@@ -292,5 +292,5 @@
     }
   },
   "held": {},
-  "checked": "2026-11-17T22:23:56+00:00"
+  "checked": "2026-11-18T13:56:41+00:00"
 }
