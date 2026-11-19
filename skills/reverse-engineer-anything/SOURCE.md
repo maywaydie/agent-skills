@@ -1,7 +1,7 @@
 # Source of `reverse-engineer-anything`
 
 - Upstream: https://github.com/morluto/rea (`.agents/skills/reverse-engineer-anything`, branch `main`)
-- Commit: [91e26d2ef353](https://github.com/morluto/rea/tree/91e26d2ef353af4c4667d03907bfa05336d5a7af/.agents/skills/reverse-engineer-anything) from 2026-11-18T06:10:23+08:00
+- Commit: [59c7eed91d52](https://github.com/morluto/rea/tree/59c7eed91d52530ab110f9c80bd38419e5b99651/.agents/skills/reverse-engineer-anything) from 2026-11-19T14:25:35Z
 - Licence: MIT
-- Vendored by tools/skillsync.py on 2026-11-18. Do not edit by hand:
+- Vendored by tools/skillsync.py on 2026-11-19. Do not edit by hand:
   the next update overwrites this folder. Put local changes in a skill of your own.

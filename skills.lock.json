@@ -63,8 +63,8 @@
     "rea": {
       "repo": "morluto/rea",
       "ref": "main",
-      "commit": "39e8403306af0764c6319a514193d9fb4dad794e",
-      "date": "2026-11-18T08:54:35-05:00"
+      "commit": "59c7eed91d52530ab110f9c80bd38419e5b99651",
+      "date": "2026-11-19T14:25:35Z"
     },
     "sentry": {
       "repo": "getsentry/skills",
@@ -209,8 +209,8 @@
     "reverse-engineer-anything": {
       "source": "rea",
       "path": ".agents/skills/reverse-engineer-anything",
-      "commit": "39e8403306af0764c6319a514193d9fb4dad794e",
-      "hash": "0fcee33efbdde7d6"
+      "commit": "59c7eed91d52530ab110f9c80bd38419e5b99651",
+      "hash": "2ee130955180255f"
     },
     "ruff": {
       "source": "astral",
@@ -292,5 +292,5 @@
     }
   },
   "held": {},
-  "checked": "2026-11-18T13:56:41+00:00"
+  "checked": "2026-11-19T14:25:43+00:00"
 }

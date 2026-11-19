@@ -2,6 +2,10 @@
 
 Written by `tools/skillsync.py update`.
 
+## 2026-11-19 14:25
+
+- **reverse-engineer-anything** (rea): updated [39e84033...59c7eed9](https://github.com/morluto/rea/compare/39e8403306af0764c6319a514193d9fb4dad794e...59c7eed91d52530ab110f9c80bd38419e5b99651), 3 file(s)
+
 ## 2026-11-18 13:56
 
 - **anti-reversing-techniques** (wshobson): updated [9c61ab24...42203085](https://github.com/wshobson/agents/compare/9c61ab243def98f72da12abd41cfcf5bcd91af9d...42203085cfc5736204bf0f6d436dff7e1da0bf3f), 4 file(s)
