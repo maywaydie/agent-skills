@@ -1,7 +1,7 @@
 # Source of `debugview`
 
 - Upstream: https://github.com/microsoft/skills (`.github/skills/debugview`, branch `main`)
-- Commit: [b35d2c60fac7](https://github.com/microsoft/skills/tree/b35d2c60fac796bfd2cfd14ad3f550c73e92d9bb/.github/skills/debugview) from 2026-11-16T18:09:29-08:00
+- Commit: [0d60658e34d0](https://github.com/microsoft/skills/tree/0d60658e34d07c05a5cd0514d3e64ccd653e8539/.github/skills/debugview) from 2026-11-19T13:00:09-08:00
 - Licence: MIT
-- Vendored by tools/skillsync.py on 2026-11-18. Do not edit by hand:
+- Vendored by tools/skillsync.py on 2026-11-20. Do not edit by hand:
   the next update overwrites this folder. Put local changes in a skill of your own.

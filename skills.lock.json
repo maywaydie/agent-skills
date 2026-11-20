@@ -33,8 +33,8 @@
     "lowlevel": {
       "repo": "mohitmishra786/low-level-dev-skills",
       "ref": "main",
-      "commit": "d0d0a13d4e3caec7afb2d647a1fffdb7cb1ee058",
-      "date": "2026-11-14T08:33:25+05:30"
+      "commit": "18f29518a47fda070e6ec1268cb577692fae9a10",
+      "date": "2026-11-20T18:39:55+05:30"
     },
     "mcollina": {
       "repo": "mcollina/skills",
@@ -51,8 +51,8 @@
     "microsoft": {
       "repo": "microsoft/skills",
       "ref": "main",
-      "commit": "b35d2c60fac796bfd2cfd14ad3f550c73e92d9bb",
-      "date": "2026-11-16T18:09:29-08:00"
+      "commit": "0d60658e34d07c05a5cd0514d3e64ccd653e8539",
+      "date": "2026-11-19T13:00:09-08:00"
     },
     "mitsuhiko": {
       "repo": "mitsuhiko/agent-stuff",
@@ -63,8 +63,8 @@
     "rea": {
       "repo": "morluto/rea",
       "ref": "main",
-      "commit": "59c7eed91d52530ab110f9c80bd38419e5b99651",
-      "date": "2026-11-19T14:25:35Z"
+      "commit": "4f5d1b250c0d90d6cb53009ffb56a0fdd0a7a929",
+      "date": "2026-11-20T08:58:11-05:00"
     },
     "sentry": {
       "repo": "getsentry/skills",
@@ -131,8 +131,8 @@
     "debugview": {
       "source": "microsoft",
       "path": ".github/skills/debugview",
-      "commit": "b35d2c60fac796bfd2cfd14ad3f550c73e92d9bb",
-      "hash": "a08e225ac2f47d5b"
+      "commit": "0d60658e34d07c05a5cd0514d3e64ccd653e8539",
+      "hash": "12b869e8b4a19d9a"
     },
     "dispatching-parallel-agents": {
       "source": "superpowers",
@@ -173,8 +173,8 @@
     "hypervisor-internals": {
       "source": "lowlevel",
       "path": "skills/virtualization/hypervisor-internals",
-      "commit": "d0d0a13d4e3caec7afb2d647a1fffdb7cb1ee058",
-      "hash": "4e1b662bc12d0955"
+      "commit": "18f29518a47fda070e6ec1268cb577692fae9a10",
+      "hash": "5be292a18f146bce"
     },
     "idapython": {
       "source": "ida-pro-mcp",
@@ -209,8 +209,8 @@
     "reverse-engineer-anything": {
       "source": "rea",
       "path": ".agents/skills/reverse-engineer-anything",
-      "commit": "59c7eed91d52530ab110f9c80bd38419e5b99651",
-      "hash": "2ee130955180255f"
+      "commit": "4f5d1b250c0d90d6cb53009ffb56a0fdd0a7a929",
+      "hash": "56063b463bba328f"
     },
     "ruff": {
       "source": "astral",
@@ -292,5 +292,5 @@
     }
   },
   "held": {},
-  "checked": "2026-11-19T14:25:43+00:00"
+  "checked": "2026-11-20T13:59:54+00:00"
 }

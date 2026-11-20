@@ -2,6 +2,12 @@
 
 Written by `tools/skillsync.py update`.
 
+## 2026-11-20 13:59
+
+- **hypervisor-internals** (lowlevel): updated [d0d0a13d...18f29518](https://github.com/mohitmishra786/low-level-dev-skills/compare/d0d0a13d4e3caec7afb2d647a1fffdb7cb1ee058...18f29518a47fda070e6ec1268cb577692fae9a10), 2 file(s)
+- **debugview** (microsoft): updated [b35d2c60...0d60658e](https://github.com/microsoft/skills/compare/b35d2c60fac796bfd2cfd14ad3f550c73e92d9bb...0d60658e34d07c05a5cd0514d3e64ccd653e8539), 8 file(s)
+- **reverse-engineer-anything** (rea): updated [59c7eed9...4f5d1b25](https://github.com/morluto/rea/compare/59c7eed91d52530ab110f9c80bd38419e5b99651...4f5d1b250c0d90d6cb53009ffb56a0fdd0a7a929), 2 file(s)
+
 ## 2026-11-19 14:25
 
 - **reverse-engineer-anything** (rea): updated [39e84033...59c7eed9](https://github.com/morluto/rea/compare/39e8403306af0764c6319a514193d9fb4dad794e...59c7eed91d52530ab110f9c80bd38419e5b99651), 3 file(s)
