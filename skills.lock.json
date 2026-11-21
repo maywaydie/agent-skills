@@ -51,8 +51,8 @@
     "microsoft": {
       "repo": "microsoft/skills",
       "ref": "main",
-      "commit": "0d60658e34d07c05a5cd0514d3e64ccd653e8539",
-      "date": "2026-11-19T13:00:09-08:00"
+      "commit": "47eb3888eb42aef074fcb617931bf6e5934e45d9",
+      "date": "2026-11-20T09:31:05-08:00"
     },
     "mitsuhiko": {
       "repo": "mitsuhiko/agent-stuff",
@@ -63,8 +63,8 @@
     "rea": {
       "repo": "morluto/rea",
       "ref": "main",
-      "commit": "4f5d1b250c0d90d6cb53009ffb56a0fdd0a7a929",
-      "date": "2026-11-20T08:58:11-05:00"
+      "commit": "e6df39bbba9c434942e742540b41c9e39a368bb3",
+      "date": "2026-11-21T08:25:28-05:00"
     },
     "sentry": {
       "repo": "getsentry/skills",
@@ -93,8 +93,8 @@
     "wshobson": {
       "repo": "wshobson/agents",
       "ref": "main",
-      "commit": "42203085cfc5736204bf0f6d436dff7e1da0bf3f",
-      "date": "2026-11-18T08:13:27-05:00"
+      "commit": "91ff75307f5668916f3eb77d5ba556266c961376",
+      "date": "2026-11-21T08:07:48-05:00"
     }
   },
   "skills": {
@@ -107,7 +107,7 @@
     "anti-reversing-techniques": {
       "source": "wshobson",
       "path": "plugins/reverse-engineering/skills/anti-reversing-techniques",
-      "commit": "42203085cfc5736204bf0f6d436dff7e1da0bf3f",
+      "commit": "91ff75307f5668916f3eb77d5ba556266c961376",
       "hash": "0d749836afdd2897"
     },
     "brainstorming": {
@@ -131,7 +131,7 @@
     "debugview": {
       "source": "microsoft",
       "path": ".github/skills/debugview",
-      "commit": "0d60658e34d07c05a5cd0514d3e64ccd653e8539",
+      "commit": "47eb3888eb42aef074fcb617931bf6e5934e45d9",
       "hash": "12b869e8b4a19d9a"
     },
     "dispatching-parallel-agents": {
@@ -209,8 +209,8 @@
     "reverse-engineer-anything": {
       "source": "rea",
       "path": ".agents/skills/reverse-engineer-anything",
-      "commit": "4f5d1b250c0d90d6cb53009ffb56a0fdd0a7a929",
-      "hash": "56063b463bba328f"
+      "commit": "e6df39bbba9c434942e742540b41c9e39a368bb3",
+      "hash": "7883470b3143b6bc"
     },
     "ruff": {
       "source": "astral",
@@ -291,6 +291,21 @@
       "hash": "3cd5d4905fc43102"
     }
   },
-  "held": {},
-  "checked": "2026-11-20T13:59:54+00:00"
+  "held": {
+    "tool-design": {
+      "source": "context-eng",
+      "commit": "d9202c76d6dc8351e648badb576a6e9b5aae1e7f",
+      "code_files": [
+        "scripts/description_generator.py"
+      ]
+    },
+    "context-optimization": {
+      "source": "context-eng",
+      "commit": "d9202c76d6dc8351e648badb576a6e9b5aae1e7f",
+      "code_files": [
+        "scripts/compaction.py"
+      ]
+    }
+  },
+  "checked": "2026-11-21T13:27:23+00:00"
 }
