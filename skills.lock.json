@@ -63,8 +63,8 @@
     "rea": {
       "repo": "morluto/rea",
       "ref": "main",
-      "commit": "d78eee196aa045445fbb0fe31e09036b3c70ac9b",
-      "date": "2026-11-23T23:40:19+08:00"
+      "commit": "7503364df8c4b7b90ae6b8e161becc030e6cb91e",
+      "date": "2026-11-24T10:46:14-05:00"
     },
     "sentry": {
       "repo": "getsentry/skills",
@@ -93,8 +93,8 @@
     "wshobson": {
       "repo": "wshobson/agents",
       "ref": "main",
-      "commit": "1eecf4b58eb380ff7ddc258a11c6586381d67b95",
-      "date": "2026-11-23T07:49:13-05:00"
+      "commit": "c96b5f6552dba32e4492307493ee613581430715",
+      "date": "2026-11-24T09:32:25-05:00"
     }
   },
   "skills": {
@@ -107,7 +107,7 @@
     "anti-reversing-techniques": {
       "source": "wshobson",
       "path": "plugins/reverse-engineering/skills/anti-reversing-techniques",
-      "commit": "1eecf4b58eb380ff7ddc258a11c6586381d67b95",
+      "commit": "c96b5f6552dba32e4492307493ee613581430715",
       "hash": "0d749836afdd2897"
     },
     "brainstorming": {
@@ -209,8 +209,8 @@
     "reverse-engineer-anything": {
       "source": "rea",
       "path": ".agents/skills/reverse-engineer-anything",
-      "commit": "d78eee196aa045445fbb0fe31e09036b3c70ac9b",
-      "hash": "119ed6703e6f874b"
+      "commit": "7503364df8c4b7b90ae6b8e161becc030e6cb91e",
+      "hash": "ed3989b81c008c0b"
     },
     "ruff": {
       "source": "astral",
@@ -307,5 +307,5 @@
       ]
     }
   },
-  "checked": "2026-11-23T15:57:34+00:00"
+  "checked": "2026-11-24T15:52:04+00:00"
 }

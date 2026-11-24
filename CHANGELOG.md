@@ -2,6 +2,12 @@
 
 Written by `tools/skillsync.py update`.
 
+## 2026-11-24 15:52
+
+- **reverse-engineer-anything** (rea): updated [d78eee19...7503364d](https://github.com/morluto/rea/compare/d78eee196aa045445fbb0fe31e09036b3c70ac9b...7503364df8c4b7b90ae6b8e161becc030e6cb91e), 3 file(s)
+- **tool-design** (context-eng): HELD at old version, upstream `d9202c76` changes code: scripts/description_generator.py
+- **context-optimization** (context-eng): HELD at old version, upstream `d9202c76` changes code: scripts/compaction.py
+
 ## 2026-11-23 15:57
 
 - **tool-design** (context-eng): HELD at old version, upstream `d9202c76` changes code: scripts/description_generator.py
