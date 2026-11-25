@@ -23,6 +23,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0   # full history so pull/rebase below never trips over a shallow clone
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
@@ -34,6 +36,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898341+github-actions[bot]@users.noreply.github.com"
+          # A queued run starts from the commit it was triggered on; catch up with what ran before it.
+          git pull --ff-only origin "${GITHUB_REF_NAME}"
           python tools/skillsync.py update --commit || echo "::warning::update reported problems, see CHANGELOG.md"
           python tools/skillsync.py check
-          git push
+          git push || { git pull --rebase origin "${GITHUB_REF_NAME}" && git push; }

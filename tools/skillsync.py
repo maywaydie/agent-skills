@@ -36,7 +36,7 @@ PLUGIN_DIR = ROOT / ".claude-plugin"
 NAME_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
 LICENSE_RE = re.compile(r"^(licen[cs]e|copying|notice)([-._][a-z0-9.-]+)?$", re.I)
 # Files that only describe things. Anything else counts as code for the review gate.
-DOC_EXT = {".md", ".txt", ".png", ".jpg", ".jpeg", ".webp", ".gif", ".svg", ".pdf"}
+DOC_EXT = {".md", ".rst", ".txt", ".png", ".jpg", ".jpeg", ".webp", ".gif", ".svg", ".pdf"}
 ALWAYS_EXCLUDE = [".git", ".git/*", ".github/*", "__pycache__/*", "*.pyc", "node_modules/*", ".DS_Store"]
 STOPWORDS = set(
     "a an and are as at be by for from has have in into is it its of on or that the this to use used "
@@ -190,12 +190,16 @@ def fetch_source(key: str, src: dict, paths: list[str]) -> tuple[Path, str, str]
     ref = src.get("ref", "main")
     dest = CACHE / key
     want = sorted(set(paths) | {"/LICENSE*", "/LICENCE*", "/COPYING*", "/NOTICE*"})
+    # Vendored bytes must equal upstream on every OS. A user-level core.autocrlf=true (Git for
+    # Windows default) would turn LF into CRLF here, so caches cloned that way are thrown away.
+    if (dest / ".git").exists() and git("config", "core.autocrlf", cwd=dest, check=False) != "false":
+        shutil.rmtree(dest, onerror=_force_remove)
     if not (dest / ".git").exists():
         if dest.exists():
             shutil.rmtree(dest, onerror=_force_remove)
         dest.parent.mkdir(parents=True, exist_ok=True)
-        git("clone", "--depth", "1", "--filter=blob:none", "--no-checkout", "--branch", ref,
-            repo_url(src), str(dest))
+        git("clone", "--config", "core.autocrlf=false", "--depth", "1", "--filter=blob:none",
+            "--no-checkout", "--branch", ref, repo_url(src), str(dest))
     else:
         git("remote", "set-url", "origin", repo_url(src), cwd=dest)
         git("fetch", "--depth", "1", "origin", ref, cwd=dest)
@@ -513,21 +517,39 @@ def cmd_check(args) -> int:
 
 
 def cmd_diff(args) -> int:
+    """Show what `update` would change, comparing like with like (licence copied, rename applied)."""
     man, lock = load_manifest(), load_lock()
     s = next((x for x in man["skill"] if x["as"] == args.skill), None)
     if not s or s.get("local"):
         die(f"{args.skill} is not a vendored skill")
     src = man["sources"][s["source"]]
-    repo_dir, sha, _ = fetch_source(s["source"], src, [s["path"]])
+    paths = [x["path"] for x in man["skill"] if x.get("source") == s["source"]]
+    repo_dir, sha, _ = fetch_source(s["source"], src, paths)
     old = lock["skills"].get(s["as"], {}).get("commit")
     print(f"{s['as']}: {old[:8] if old else 'none'} -> {sha[:8]}  {web_url(src)}/compare/{old}...{sha}\n")
-    proc = subprocess.run(["git", "diff", "--no-index", "--stat", str(SKILLS / s["as"]), str(repo_dir / s["path"])],
-                          capture_output=True, text=True, encoding="utf-8", errors="replace")
-    print(proc.stdout or "(no differences)")
-    if args.full:
-        proc = subprocess.run(["git", "diff", "--no-index", str(SKILLS / s["as"]), str(repo_dir / s["path"])],
+    if not (repo_dir / s["path"] / "SKILL.md").exists():
+        print("SKILL.md is missing upstream")
+        return 1
+    dest = SKILLS / s["as"]
+    staging = ROOT / ".cache" / "staging" / s["as"]
+    copy_skill(repo_dir / s["path"], staging, s.get("exclude", []), repo_dir)
+    if s["as"] != s["name"]:
+        set_frontmatter_name(staging / "SKILL.md", s["as"])
+    if (dest / "SOURCE.md").exists():
+        shutil.copy2(dest / "SOURCE.md", staging / "SOURCE.md")
+    before, after = file_digests(dest), file_digests(staging)
+    changed = sorted(set(before) ^ set(after) | {r for r in before if r in after and before[r] != after[r]})
+    if not changed:
+        print("(no differences)")
+    for rel in changed:
+        state = "added" if rel not in before else "removed" if rel not in after else "changed"
+        print(f"  {state:8} {'code' if is_code(rel) else 'text'}  {rel}")
+    if changed:
+        flags = [] if args.full else ["--stat"]
+        proc = subprocess.run(["git", "diff", "--no-index", *flags, str(dest), str(staging)],
                               capture_output=True, text=True, encoding="utf-8", errors="replace")
-        print(proc.stdout)
+        print("\n" + proc.stdout)
+    shutil.rmtree(staging, onerror=_force_remove)
     return 0
 
 

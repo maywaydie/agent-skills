@@ -15,8 +15,8 @@
     "context-eng": {
       "repo": "muratcankoylan/Agent-Skills-for-Context-Engineering",
       "ref": "main",
-      "commit": "9ff0c99108b36d3b886defd825d8ac1f47dba374",
-      "date": "2026-10-11T22:06:39-04:00"
+      "commit": "d9202c76d6dc8351e648badb576a6e9b5aae1e7f",
+      "date": "2026-11-21T02:36:17-05:00"
     },
     "hallmark": {
       "repo": "Nutlope/hallmark",
@@ -63,8 +63,8 @@
     "rea": {
       "repo": "morluto/rea",
       "ref": "main",
-      "commit": "7503364df8c4b7b90ae6b8e161becc030e6cb91e",
-      "date": "2026-11-24T10:46:14-05:00"
+      "commit": "ff2f1c2f72a5cbe696086d64a28d450dcd7dc4b5",
+      "date": "2026-11-25T13:48:08Z"
     },
     "sentry": {
       "repo": "getsentry/skills",
@@ -102,7 +102,7 @@
       "source": "mcp-windbg",
       "path": "plugins/mcp-windbg-skills/skills/analyze-dump",
       "commit": "cf308c236e497ffaa613c54fc38babfa7da59409",
-      "hash": "20c1d8f342fe8d4b"
+      "hash": "db3bff0a9f926343"
     },
     "anti-reversing-techniques": {
       "source": "wshobson",
@@ -114,19 +114,19 @@
       "source": "superpowers",
       "path": "skills/brainstorming",
       "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
-      "hash": "855f46fe599bae19"
+      "hash": "9cbcfcd803d6c921"
     },
     "codeql": {
       "source": "trailofbits",
       "path": "plugins/static-analysis/skills/codeql",
       "commit": "149d7b21f4067765b82e67029730b42d228ef4b4",
-      "hash": "66cb1b36548ecf69"
+      "hash": "3be73372a35f9ca7"
     },
     "context-optimization": {
       "source": "context-eng",
       "path": "skills/context-optimization",
-      "commit": "9ff0c99108b36d3b886defd825d8ac1f47dba374",
-      "hash": "4d7b86376381cd75"
+      "commit": "d9202c76d6dc8351e648badb576a6e9b5aae1e7f",
+      "hash": "7abc32a2d41cfb58"
     },
     "debugview": {
       "source": "microsoft",
@@ -138,31 +138,31 @@
       "source": "superpowers",
       "path": "skills/dispatching-parallel-agents",
       "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
-      "hash": "8611bcbc9ebf8270"
+      "hash": "be76b37714d28bf1"
     },
     "executing-plans": {
       "source": "superpowers",
       "path": "skills/executing-plans",
       "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
-      "hash": "2f2554ed3484fd34"
+      "hash": "a067a94fe8110a62"
     },
     "find-skills": {
       "source": "vercel-skills",
       "path": "skills/find-skills",
       "commit": "57217cf86ba38148a57af9e90d14a4c049558330",
-      "hash": "6dd2e2b346827696"
+      "hash": "5502835e381c0ea2"
     },
     "finishing-a-development-branch": {
       "source": "superpowers",
       "path": "skills/finishing-a-development-branch",
       "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
-      "hash": "3cb77392de8ca5d4"
+      "hash": "4f7fd7f9c9602108"
     },
     "ghidra": {
       "source": "mitsuhiko",
       "path": "skills/ghidra",
       "commit": "0865c849befd2021490679f96a8dee58c84ac857",
-      "hash": "416cf19ffa845ef0"
+      "hash": "d2b0dcea2b4d71a4"
     },
     "hallmark": {
       "source": "hallmark",
@@ -180,132 +180,117 @@
       "source": "ida-pro-mcp",
       "path": "skills/idapython",
       "commit": "13e480cb1198f923154b63669e8cb2faee5deaea",
-      "hash": "7a6ff07a4c913f0b"
+      "hash": "fb9698ff59b1998e"
     },
     "kernel-debug": {
       "source": "mcp-windbg",
       "path": "plugins/mcp-windbg-skills/skills/kernel-debug",
       "commit": "cf308c236e497ffaa613c54fc38babfa7da59409",
-      "hash": "40be8d7b58a5b5f5"
+      "hash": "4e05b99ba1bc8752"
     },
     "mcp-builder": {
       "source": "anthropic",
       "path": "skills/mcp-builder",
       "commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
-      "hash": "fdb9dcc3efcaeaaa"
+      "hash": "f8e859b421059ba9"
     },
     "node-best-practices": {
       "source": "mcollina",
       "path": "skills/node",
       "commit": "c75d70dbfbe991d8cec42aeda0b64ff14fbb9ac7",
-      "hash": "b5541d168ba7a5af"
+      "hash": "c8a1a1e6a2273be5"
     },
     "receiving-code-review": {
       "source": "superpowers",
       "path": "skills/receiving-code-review",
       "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
-      "hash": "8a8165d7e791fea8"
+      "hash": "572d39c6591be130"
     },
     "reverse-engineer-anything": {
       "source": "rea",
       "path": ".agents/skills/reverse-engineer-anything",
-      "commit": "7503364df8c4b7b90ae6b8e161becc030e6cb91e",
-      "hash": "ed3989b81c008c0b"
+      "commit": "ff2f1c2f72a5cbe696086d64a28d450dcd7dc4b5",
+      "hash": "1a1a6a32d63939a0"
     },
     "ruff": {
       "source": "astral",
       "path": "plugins/astral/skills/ruff",
       "commit": "855418fb9ebfada49a8345a5c3ada9db2cdc2419",
-      "hash": "b70dc17d22ffa192"
+      "hash": "018b877975d0582d"
     },
     "semgrep": {
       "source": "trailofbits",
       "path": "plugins/static-analysis/skills/semgrep",
       "commit": "149d7b21f4067765b82e67029730b42d228ef4b4",
-      "hash": "1396bed03051a4e4"
+      "hash": "60ac614a251e3014"
     },
     "skill-scanner": {
       "source": "sentry",
       "path": "skills/skill-scanner",
       "commit": "a582c51ee29d0f35e6ac321340796f77d43da733",
-      "hash": "727af06f44e273b2"
+      "hash": "e6610c5c8f9cb32f"
     },
     "subagent-driven-development": {
       "source": "superpowers",
       "path": "skills/subagent-driven-development",
       "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
-      "hash": "aa896fba1c8dacda"
+      "hash": "d20d7b201382e434"
     },
     "systematic-debugging": {
       "source": "superpowers",
       "path": "skills/systematic-debugging",
       "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
-      "hash": "97c3d8947a875954"
+      "hash": "bd40195f384a44a3"
     },
     "test-driven-development": {
       "source": "superpowers",
       "path": "skills/test-driven-development",
       "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
-      "hash": "c23cf09412178a22"
+      "hash": "c2f2f58e684fae5b"
     },
     "tool-design": {
       "source": "context-eng",
       "path": "skills/tool-design",
-      "commit": "9ff0c99108b36d3b886defd825d8ac1f47dba374",
-      "hash": "14beb562fc6d69ef"
+      "commit": "d9202c76d6dc8351e648badb576a6e9b5aae1e7f",
+      "hash": "9c4e289bbc3ef51b"
     },
     "using-git-worktrees": {
       "source": "superpowers",
       "path": "skills/using-git-worktrees",
       "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
-      "hash": "58ddb4ec9c178fd1"
+      "hash": "65a5a2dcb9cc4af9"
     },
     "uv": {
       "source": "astral",
       "path": "plugins/astral/skills/uv",
       "commit": "855418fb9ebfada49a8345a5c3ada9db2cdc2419",
-      "hash": "cb8da46b5b760491"
+      "hash": "da4a3ea939c6261d"
     },
     "variant-analysis": {
       "source": "trailofbits",
       "path": "plugins/variant-analysis/skills/variant-analysis",
       "commit": "149d7b21f4067765b82e67029730b42d228ef4b4",
-      "hash": "fc6dc511db87295c"
+      "hash": "ad48462065c62774"
     },
     "verification-before-completion": {
       "source": "superpowers",
       "path": "skills/verification-before-completion",
       "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
-      "hash": "5839bbf9770a433c"
+      "hash": "2848ae643f448814"
     },
     "webapp-testing": {
       "source": "anthropic",
       "path": "skills/webapp-testing",
       "commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
-      "hash": "ea0986c3af798f34"
+      "hash": "3ded4688bd2037c3"
     },
     "writing-plans": {
       "source": "superpowers",
       "path": "skills/writing-plans",
       "commit": "22f0b463e7a5e579904dd6211a520321035526f7",
-      "hash": "3cd5d4905fc43102"
+      "hash": "98883feb71121ce9"
     }
   },
-  "held": {
-    "tool-design": {
-      "source": "context-eng",
-      "commit": "d9202c76d6dc8351e648badb576a6e9b5aae1e7f",
-      "code_files": [
-        "scripts/description_generator.py"
-      ]
-    },
-    "context-optimization": {
-      "source": "context-eng",
-      "commit": "d9202c76d6dc8351e648badb576a6e9b5aae1e7f",
-      "code_files": [
-        "scripts/compaction.py"
-      ]
-    }
-  },
-  "checked": "2026-11-24T15:52:04+00:00"
+  "held": {},
+  "checked": "2026-11-25T14:00:51+00:00"
 }

@@ -2,6 +2,37 @@
 
 Written by `tools/skillsync.py update`.
 
+## 2026-11-25 16:00
+
+- **mcp-builder** (anthropic): updated `e4bb5d96`, 11 file(s)
+- **webapp-testing** (anthropic): updated `e4bb5d96`, 6 file(s)
+- **uv** (astral): updated `855418fb`, 3 file(s)
+- **ruff** (astral): updated `855418fb`, 3 file(s)
+- **tool-design** (context-eng): updated [9ff0c991...d9202c76](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/compare/9ff0c99108b36d3b886defd825d8ac1f47dba374...d9202c76d6dc8351e648badb576a6e9b5aae1e7f), 5 file(s)
+- **context-optimization** (context-eng): updated [9ff0c991...d9202c76](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/compare/9ff0c99108b36d3b886defd825d8ac1f47dba374...d9202c76d6dc8351e648badb576a6e9b5aae1e7f), 4 file(s)
+- **idapython** (ida-pro-mcp): updated `13e480cb`, 106 file(s)
+- **node-best-practices** (mcollina): updated `c75d70db`, 19 file(s)
+- **analyze-dump** (mcp-windbg): updated `cf308c23`, 2 file(s)
+- **kernel-debug** (mcp-windbg): updated `cf308c23`, 2 file(s)
+- **ghidra** (mitsuhiko): updated `0865c849`, 10 file(s)
+- **reverse-engineer-anything** (rea): updated [7503364d...ff2f1c2f](https://github.com/morluto/rea/compare/7503364df8c4b7b90ae6b8e161becc030e6cb91e...ff2f1c2f72a5cbe696086d64a28d450dcd7dc4b5), 1 file(s)
+- **skill-scanner** (sentry): updated `a582c51e`, 6 file(s)
+- **brainstorming** (superpowers): updated `22f0b463`, 3 file(s)
+- **writing-plans** (superpowers): updated `22f0b463`, 1 file(s)
+- **executing-plans** (superpowers): updated `22f0b463`, 3 file(s)
+- **subagent-driven-development** (superpowers): updated `22f0b463`, 5 file(s)
+- **dispatching-parallel-agents** (superpowers): updated `22f0b463`, 1 file(s)
+- **test-driven-development** (superpowers): updated `22f0b463`, 1 file(s)
+- **systematic-debugging** (superpowers): updated `22f0b463`, 1 file(s)
+- **verification-before-completion** (superpowers): updated `22f0b463`, 1 file(s)
+- **using-git-worktrees** (superpowers): updated `22f0b463`, 1 file(s)
+- **finishing-a-development-branch** (superpowers): updated `22f0b463`, 1 file(s)
+- **receiving-code-review** (superpowers): updated `22f0b463`, 1 file(s)
+- **semgrep** (trailofbits): updated `149d7b21`, 10 file(s)
+- **codeql** (trailofbits): updated `149d7b21`, 35 file(s)
+- **variant-analysis** (trailofbits): updated `149d7b21`, 19 file(s)
+- **find-skills** (vercel-skills): updated `57217cf8`, 2 file(s)
+
 ## 2026-11-24 15:52
 
 - **reverse-engineer-anything** (rea): updated [d78eee19...7503364d](https://github.com/morluto/rea/compare/d78eee196aa045445fbb0fe31e09036b3c70ac9b...7503364df8c4b7b90ae6b8e161becc030e6cb91e), 3 file(s)

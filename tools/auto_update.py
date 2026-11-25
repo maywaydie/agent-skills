@@ -21,9 +21,15 @@ with contextlib.redirect_stdout(buf), contextlib.redirect_stderr(buf):
     print(f"=== {dt.datetime.now().isoformat(timespec='seconds')}")
     try:
         has_remote = (skillsync.ROOT / ".git").exists() and skillsync.git("remote", cwd=skillsync.ROOT, check=False)
-        if has_remote:
+        dirty = has_remote and skillsync.git("status", "--porcelain", "--untracked-files=no", cwd=skillsync.ROOT)
+        if dirty:
+            # Never stash or merge someone's work in progress from a background job: an autostash
+            # that conflicts leaves the repo half-merged and every later run fails.
+            print("  skipped pull: uncommitted changes in the repo (commit or discard them)")
+            rc = 1
+        elif has_remote:
             before = skillsync.git("rev-parse", "HEAD", cwd=skillsync.ROOT)
-            print(skillsync.git("pull", "--ff-only", "--autostash", cwd=skillsync.ROOT) or "pulled")
+            print(skillsync.git("pull", "--ff-only", cwd=skillsync.ROOT) or "pulled")
             after = skillsync.git("rev-parse", "HEAD", cwd=skillsync.ROOT)
             print(f"  {before[:8]} -> {after[:8]}" if before != after else "  already up to date")
         else:
