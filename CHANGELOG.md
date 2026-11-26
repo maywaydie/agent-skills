@@ -2,6 +2,10 @@
 
 Written by `tools/skillsync.py update`.
 
+## 2026-11-26 15:12
+
+- **reverse-engineer-anything** (rea): updated [ff2f1c2f...f9d674e7](https://github.com/morluto/rea/compare/ff2f1c2f72a5cbe696086d64a28d450dcd7dc4b5...f9d674e748b98b024e0b174099eb0171cdad958c), 1 file(s)
+
 ## 2026-11-25 16:00
 
 - **mcp-builder** (anthropic): updated `e4bb5d96`, 11 file(s)
