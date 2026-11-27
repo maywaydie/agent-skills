@@ -15,8 +15,8 @@
     "context-eng": {
       "repo": "muratcankoylan/Agent-Skills-for-Context-Engineering",
       "ref": "main",
-      "commit": "d9202c76d6dc8351e648badb576a6e9b5aae1e7f",
-      "date": "2026-11-21T02:36:17-05:00"
+      "commit": "9f062cad10b9d2d46c0aa4206b025be6bb5a85b1",
+      "date": "2026-11-26T19:05:24-05:00"
     },
     "hallmark": {
       "repo": "Nutlope/hallmark",
@@ -63,8 +63,8 @@
     "rea": {
       "repo": "morluto/rea",
       "ref": "main",
-      "commit": "f9d674e748b98b024e0b174099eb0171cdad958c",
-      "date": "2026-11-26T15:11:33Z"
+      "commit": "68f817cdee7bc46071c6cb4693a0a9de4aa374a1",
+      "date": "2026-11-27T14:22:18Z"
     },
     "sentry": {
       "repo": "getsentry/skills",
@@ -87,8 +87,8 @@
     "vercel-skills": {
       "repo": "vercel-labs/skills",
       "ref": "main",
-      "commit": "57217cf86ba38148a57af9e90d14a4c049558330",
-      "date": "2026-11-17T09:58:01+09:00"
+      "commit": "e7fd0e9e52f029fe87729d8185cb8caf7049f678",
+      "date": "2026-11-27T05:06:07Z"
     },
     "wshobson": {
       "repo": "wshobson/agents",
@@ -125,8 +125,8 @@
     "context-optimization": {
       "source": "context-eng",
       "path": "skills/context-optimization",
-      "commit": "d9202c76d6dc8351e648badb576a6e9b5aae1e7f",
-      "hash": "7abc32a2d41cfb58"
+      "commit": "9f062cad10b9d2d46c0aa4206b025be6bb5a85b1",
+      "hash": "66f85e4bd168bdbc"
     },
     "debugview": {
       "source": "microsoft",
@@ -149,7 +149,7 @@
     "find-skills": {
       "source": "vercel-skills",
       "path": "skills/find-skills",
-      "commit": "57217cf86ba38148a57af9e90d14a4c049558330",
+      "commit": "e7fd0e9e52f029fe87729d8185cb8caf7049f678",
       "hash": "5502835e381c0ea2"
     },
     "finishing-a-development-branch": {
@@ -209,8 +209,8 @@
     "reverse-engineer-anything": {
       "source": "rea",
       "path": ".agents/skills/reverse-engineer-anything",
-      "commit": "f9d674e748b98b024e0b174099eb0171cdad958c",
-      "hash": "0206351eb304df91"
+      "commit": "68f817cdee7bc46071c6cb4693a0a9de4aa374a1",
+      "hash": "b8f47e7fab1abc8a"
     },
     "ruff": {
       "source": "astral",
@@ -251,7 +251,7 @@
     "tool-design": {
       "source": "context-eng",
       "path": "skills/tool-design",
-      "commit": "d9202c76d6dc8351e648badb576a6e9b5aae1e7f",
+      "commit": "9f062cad10b9d2d46c0aa4206b025be6bb5a85b1",
       "hash": "9c4e289bbc3ef51b"
     },
     "using-git-worktrees": {
@@ -292,5 +292,5 @@
     }
   },
   "held": {},
-  "checked": "2026-11-26T15:12:41+00:00"
+  "checked": "2026-11-27T15:03:50+00:00"
 }
