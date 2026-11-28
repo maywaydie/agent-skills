@@ -2,6 +2,10 @@
 
 Written by `tools/skillsync.py update`.
 
+## 2026-11-28 14:11
+
+- **reverse-engineer-anything** (rea): updated [68f817cd...43e0567e](https://github.com/morluto/rea/compare/68f817cdee7bc46071c6cb4693a0a9de4aa374a1...43e0567ebfeb904a15931526e35a3beb1b3841c4), 2 file(s)
+
 ## 2026-11-27 15:03
 
 - **context-optimization** (context-eng): updated [d9202c76...9f062cad](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering/compare/d9202c76d6dc8351e648badb576a6e9b5aae1e7f...9f062cad10b9d2d46c0aa4206b025be6bb5a85b1), 1 file(s)
